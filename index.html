@@ -1,957 +1,517 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Ali Bunyamin - Software Engineer</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script
-      src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Google fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-  </head>
-  <body id="page-top">
-    <!-- Navigation-->
-    <nav
-      class="navbar navbar-expand-lg bg-black text-uppercase fixed-top"
-      id="mainNav"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="#page-top"><img
-          src="assets/img/logo.png" height="90" width="100"
-        /></a>
-        <button
-          class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio"
-                >Portfolio</a
-              >
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about"
-                >About</a
-              >
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact"
-                >Contact</a
-              >
-            </li>
-          </ul>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Bunyamin | QA Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            scroll-behavior: smooth;
+        }
+        .theme-dark { background-color: #1a1c1e; color: #e2e8f0; }
+        .theme-light { background-color: #f8fafc; color: #1e293b; }
+        
+        .nav-scrolled { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+        
+        /* Modal Custom Styling */
+        .modal-content { border-radius: 2.5rem; border: none; overflow: hidden; }
+        .theme-dark .modal-content { background-color: #242729; color: white; }
+        .theme-light .modal-content { background-color: #ffffff; color: #1a1c1e; }
+        
+        .portfolio-card:hover img { transform: scale(1.05); }
+        .portfolio-card { cursor: pointer; transition: all 0.3s ease; }
+        
+        /* Hilangkan underline default bootstrap pada link */
+        a { text-decoration: none !important; }
+        /* Perbaikan CSS Navigasi */
+#mainNav {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    padding-top: 80px; /* Sesuai dengan tinggi h-20 navbar lo */
+}
+
+/* Style khusus untuk Form Contact */
+.contact-input {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.contact-input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #10b981; /* Warna hijau emerald sesuai tombol */
+    outline: none;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+.theme-light .contact-input {
+    background-color: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #1e293b;
+}
+    </style>
+</head>
+<body class="theme-dark">
+
+    <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 px-4">
+        <div class="container mx-auto flex justify-between items-center bg-white/5 backdrop-blur-md rounded-full px-6 py-3 border border-white/10">
+            <a href="#" class="text-xl font-extrabold tracking-tighter uppercase">Ali WorkSpace</a>
+            
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="#hero" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Home</a>
+                <a href="#skills" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Skills</a>
+                <a href="#portfolio" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Porto</a>
+                <a href="#experience" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Experience</a>
+                <a href="#contact" class="px-6 py-2 bg-blue-600 text-white rounded-full font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition shadow-lg">Contact</a>
+            </div>
+
+            <button id="theme-toggle" class="bg-white text-gray-900 p-2.5 rounded-full shadow-xl hover:scale-110 transition-transform">
+                <i id="theme-icon" class="fas fa-sun"></i>
+            </button>
         </div>
-      </div>
-    </nav> -->
-    <!-- Masthead-->
-    <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Ali Bunyamin - QA Engineer</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-  </head>
-  <body class="bg-gray-900 text-gray-200" id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg bg-gray-800 text-uppercase fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="#page-top">
-          <img src="assets/img/logo.png" height="90" width="100" />
-        </a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </nav>
-    <!-- Masthead-->
-    <header
-      class="masthead bg-linear-gradient text-white text-center"
-      src="assets/img/cover.jpeg"
-    >
-      <div class="container d-flex align-items-center flex-column">
-        <!-- Masthead Avatar Image-->
-        <img
-          class="masthead-avatar mb-5"
-          src="assets/img/profil.png"
-          alt="..."
-        />
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">
-          Ali Bunyamin Kholifah
-        </h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-computer"></i></div>
-          <div class="divider-custom-line"></div>
+
+    <header id="hero" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-green-500/10 text-green-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6 border border-green-500/20">Quality Assurance Specialist</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tighter">Membangun Produk <br><span class="text-blue-600 italic">Tanpa Celah.</span></h1>
+                <p class="text-lg opacity-70 mb-10 max-w-lg">Saya Ali Bunyamin, QA Engineer yang berfokus pada presisi manual dan efisiensi automation untuk memastikan aplikasi berjalan sempurna.</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#portfolio" class="px-8 py-4 bg-white text-black rounded-2xl font-bold hover:bg-blue-600 hover:text-white transition-all shadow-xl">Lihat Portfolio</a>
+                    <a href="https://www.linkedin.com/in/alibnymn/" target="_blank" class="px-8 py-4 border border-white/20 rounded-2xl font-bold hover:bg-white/5 transition-all text-current">Hire Me</a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-72 h-72 md:w-96 md:h-96 bg-blue-600 rounded-[40px] rotate-6 absolute opacity-20 blur-2xl"></div>
+                <img src="assets/img/profil.png" class="relative z-10 w-72 h-72 md:w-96 md:h-96 object-cover rounded-[40px] border-8 border-white/5 shadow-2xl transition-transform hover:rotate-0 -rotate-3 duration-500" alt="Ali">
+            </div>
         </div>
-        <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">
-          WEB Developer | QA Engineer
-        </p>
-      </div>
     </header>
-    <!-- Portfolio Section-->
-    <section class="page-section portfolio" id="portfolio">
-      <div class="container">
-        <!-- Portfolio Section Heading-->
-        <h2
-          class="page-section-heading text-center text-uppercase text-secondary mb-0"
-        >
-          Portfolio
-        </h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fa fa-book"></i></div>
-          <div class="divider-custom-line"></div>
+
+    <section id="skills" class="py-24 bg-black/5">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black tracking-tighter mb-16 uppercase">My Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-10 rounded-[32px] bg-white/5 border border-white/10 hover:border-blue-500 transition-all group">
+                    <i class="fas fa-robot text-4xl text-blue-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">Automation Testing</h3>
+                    <p class="text-sm opacity-60">Playwright & JavaScript Framework.</p>
+                </div>
+
+                <div class="p-10 rounded-[32px] bg-white/5 border border-white/10 hover:border-green-500 transition-all group">
+                    <i class="fas fa-eye text-4xl text-green-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">Manual Precision</h3>
+                    <p class="text-sm opacity-60">End-to-End Testing & Bug Analysis.</p>
+                </div>
+
+                <div class="p-10 rounded-[32px] bg-white/5 border border-white/10 hover:border-purple-500 transition-all group">
+                    <i class="fas fa-bolt text-4xl text-purple-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">API Testing</h3>
+                    <p class="text-sm opacity-60">Postman API Validation & Integration.</p>
+                </div>
+
+                <div class="p-10 rounded-[32px] bg-white/5 border border-white/10 hover:border-orange-500 transition-all group">
+                    <i class="fas fa-layer-group text-4xl text-orange-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">Platform Testing</h3>
+                    <p class="text-sm opacity-60">Comprehensive Testing for Mobile, Desktop, & Web Apps.</p>
+                </div>
+
+                <div class="p-10 rounded-[32px] bg-white/5 border border-white/10 hover:border-cyan-500 transition-all group">
+                    <i class="fas fa-cube text-4xl text-cyan-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">Web3 Testing</h3>
+                    <p class="text-sm opacity-60">Basic testing for decentralized apps & blockchain interfaces.</p>
+                </div>
+
+                <div class="p-10 rounded-[32px] bg-white/5 border border-white/10 hover:border-pink-500 transition-all group">
+                    <i class="fas fa-file-alt text-4xl text-pink-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-4">User Documentation</h3>
+                    <p class="text-sm opacity-60">Creating clear manuals and technical guides for end-users.</p>
+                </div>
+            </div>
         </div>
-        <!-- Portfolio Grid Items-->
-        <div class="row justify-content-center">
-          
-          <!-- Portfolio Item 1-->
-           <div class="col-md-6 col-lg-4 mb-5">
-             <div
-               class="portfolio-item"
-               data-bs-toggle="modal"
-               data-bs-target="#portfolioModal1"
-              >
-             <div class="d-flex align-items-center justify-content-center h-100 w-100 p-3" 
-              style="background-color: #2c3e50; min-height: 200px; color: white; border-radius: 0.5rem; border: 2px solid #1abc9c;">
-              <h4 class="text-white text-center">MANUAL TESTING ARTIFAK <img
-                class="img-fluid"
-                src="assets/img/portfolio/apk1/FormTestCase.jpg"
-                alt="..."
-              /></h4>
-             </div>
-          <div
-            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                >
-             <div
-                class="portfolio-item-caption-content text-center text-white"
-              >
-                <i class="fas fa-file-alt fa-3x mb-2"></i>
-                <p class="mb-0">Lihat Detail & Artefak Manual</p>
-             </div>
-            </div>
-           </div>
-          </div>
-          <!-- Portfolio Item 2-->
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div
-              class="portfolio-item mx-auto"
-              data-bs-toggle="modal"
-              data-bs-target="#portfolioModal2"
-            >
-            <div class="d-flex align-items-center justify-content-center h-100 w-100 p-3" 
-              style="background-color: #2c3e50; min-height: 200px; color: white; border-radius: 0.5rem; border: 2px solid #1abc9c;">
-              <h4 class="text-white text-center">Sample API Testing
-                <img
-                class="img-fluid"
-                src="assets/img/portfolio/apk2/ApiTesting.jpg"
-                alt="..."
-              />
-              </h4>
-             </div>
-              <div
-                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-              >
-                <div
-                  class="portfolio-item-caption-content text-center text-white"
-                >
-                  <i class="fas fa-file-alt fa-3x mb-2"></i>
-                  <p class="mb-0">Lihat Detail Api Testing</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Portfolio Item 3-->
-           <div class="col-md-6 col-lg-4 mb-5">
-             <div
-               class="portfolio-item"
-               data-bs-toggle="modal"
-               data-bs-target="#portfolioModal3"
-              >
-             <div class="d-flex align-items-center justify-content-center h-100 w-100 p-3" 
-              style="background-color: #2c3e50; min-height: 200px; color: white; border-radius: 0.5rem; border: 2px solid #1abc9c;">
-              <h4 class="text-white text-center">Automation Testing<img
-                class="img-fluid"
-                src="assets/img/portfolio/apk3/2.jpg"
-                alt="..."
-              /></h4>
-             </div>
-          <div
-            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                >
-             <div
-                class="portfolio-item-caption-content text-center text-white"
-              >
-                <i class="fas fa-file-alt fa-3x mb-2"></i>
-                <p class="mb-0">Lihat Detail & Artefak Automation</p>
-             </div>
-            </div>
-           </div>
-          </div>
-          <!-- Portfolio Item 4-->
-          <div class="col-md-6 col-lg-4 mb-5">
-             <div
-               class="portfolio-item"
-               data-bs-toggle="modal"
-               data-bs-target="#portfolioModal4"
-              >
-             <div class="d-flex align-items-center justify-content-center h-100 w-100 p-3" 
-              style="background-color: #2c3e50; min-height: 200px; color: white; border-radius: 0.5rem; border: 2px solid #1abc9c;">
-              <h4 class="text-white text-center">Sample Bug Report <img
-                class="img-fluid"
-                src="assets/img/portfolio/apk4/bugreport.jpg"
-                alt="..."
-              /></h4>
-             </div>
-              <div
-                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-              >
-                <div
-                class="portfolio-item-caption-content text-center text-white"
-              >
-                <i class="fas fa-file-alt fa-3x mb-2"></i>
-                <p class="mb-0">Lihat Detail Sampel Bug Report</p>
-                </div>
-              </div>
-              <!--  -->
-            </div>
-          </div>
-          <!-- Portfolio Item 5-->
-          <div class="col-md-6 col-lg-4 mb-5">
-            <div
-              class="portfolio-item mx-auto"
-              data-bs-toggle="modal"
-              data-bs-target="#portfolioModal5"
-            >
-            <div class="d-flex align-items-center justify-content-center h-100 w-100 p-3" 
-              style="background-color: #2c3e50; min-height: 100px; color: white; border-radius: 0.5rem; border: 2px solid #1abc9c;">
-              <h4 class="text-white text-center">Kumpulan Web & App</h4>
-            </div>
-              <div
-                class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-              >
-                <div
-                  class="portfolio-item-caption-content text-center text-white"
-                >
-                  <i class="fas fa-file-alt fa-3x mb-2"></i>
-                <p class="mb-0">Lihat Detail Web & App</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Portfolio Item 6-->
-           <div class="col-md-6 col-lg-4 mb-5">
-             <div
-               class="portfolio-item"
-               data-bs-toggle="modal"
-               data-bs-target="#portfolioModal6"
-              >
-             <div class="d-flex align-items-center justify-content-center h-100 w-100 p-3" 
-              style="background-color: #2c3e50; min-height: 200px; color: white; border-radius: 0.5rem; border: 2px solid #1abc9c;">
-              <h4 class="text-white text-center">TEST PLAN <img
-                class="img-fluid"
-                src="assets/img/portfolio/apk6/1.jpg"
-                alt="..."
-              /></h4>
-             </div>
-          <div
-            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"
-                >
-             <div
-                class="portfolio-item-caption-content text-center text-white"
-              >
-                <i class="fas fa-file-alt fa-3x mb-2"></i>
-                <p class="mb-0">Lihat Detail Test Plan</p>
-             </div>
-            </div>
-           </div>
-          </div>
-        </div>
-      </div>
     </section>
-    <!-- About Section-->
-    <section class="page-section bg-dark text-white mb-0" id="about">
-      <div class="container">
-        <!-- About Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-white">
-          About
-        </h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon">
-            <i class="far fa-address-card"></i>
-          </div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- About Section Content-->
-        <div class="row">
-          <div class="col-lg-15 ms-auto">
-            <center>
-              <p class="lead">
-                This website is a personal website that displays some of the
-                results of projects that I have made and for services if you
-                want to work together to make IT projects.
-              </p>
-            </center>
-          </div>
-        </div>
-        <!-- About Section Button-->
-      </div>
-    </section>
-    <!-- Contact Section-->
-    <section class="page-section" id="contact">
-      <div class="container">
-        <!-- Contact Section Heading-->
-        <h2
-          class="page-section-heading text-center text-uppercase text-secondary mb-0"
-        >
-          Contact Me
-        </h2>
-        <!-- Icon Divider-->
-        <div class="divider-custom">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon">
-            <i class="fas fa-envelope-square"></i>
-          </div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Contact Section Form-->
-      </h1>
-        <div class="row justify-content-center">
-          <div class="col-lg-8 col-xl-10">
-            <form
-              id="contact-form"
-              action="https://formspree.io/f/mbjerbna"
-              method="POST"
-            >
-              <!-- <div class="container px-10 py-24 mx-auto"> -->
-                <div class="lg:w-1/3 w-full mx-auto px-8">
-                  <div class="relative flex-grow w-full">
-                    <!-- <label
-                      for="full-name"
-                      class="leading-7 text-sm text-gray-600"
-                      ></label
-                    > -->
-                    <label for="name">Full name</label>
-                    <input
-                      type="text"
-                      id="full-name"
-                      name="full-name"
-                      class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
-                  </div>
-                  <div class="relative flex-grow w-full">
-                    <!-- <label for="email" class="leading-7 text-sm text-gray-600"
-                      >Email</label
-                    > -->
-                    <label for="name">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
-                  </div>
-                  <div class="relative flex-grow w-full">
-                    <!-- <label for="subject" class="leading-7 text-sm text-gray-600"
-                      >Subject</label
-                    > -->
-                    <label for="name">Subject</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
-                  </div>
-                  <div class="relative flex-grow w-full">
-                    <!-- <label for="message" class="leading-7 text-sm text-gray-600"
-                      >Message</label
-                    > -->
-                    <label for="name">Message       </label>
-                    <textarea
-                      type="text"
-                      id="message"
-                      name="message"
-                      class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    ></textarea>
-                  </div>
-                  <div class="w-full h-4"></div>
-                  <button
-                    type="submit"
-                    class="mt-4 w-full text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
-                  >
-                    Send  Message
-                  </button>
-                  <div
-                    class="loader ease-linear mt-5 rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mx-auto"
-                  ></div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="js/script.js"></script>
-    <!-- Footer-->
-    <footer class="footer text-center">
-      <div class="container">
-        <div class="row">
-          <!-- Footer Location-->
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Location</h4>
-            <p class="lead mb-0">Jl. Warungawi Pasirhaur No.165</p>
-          </div>
-          <!-- Footer Social Icons-->
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Around the Web</h4>
-            <a
-              class="btn btn-outline-light btn-social mx-1"
-              href="https://www.instagram.com/albukh_/"
-              ><i class="fab fa-fw fa-instagram"></i
-            ></a>
-            <a
-              class="btn btn-outline-light btn-social mx-1"
-              href="https://www.facebook.com/profile.php?id=100034750324107"
-              ><i class="fab fa-fw fa-facebook"></i
-            ></a>
-            <a
-              class="btn btn-outline-light btn-social mx-1"
-              href="https://www.twitter.com/alibnymn"
-              ><i class="fab fa-fw fa-twitter"></i
-            ></a>
-            <a
-              class="btn btn-outline-light btn-social mx-1"
-              href="https://www.linkedin.com/in/alibnymn"
-              ><i class="fab fa-fw fa-linkedin-in"></i
-            ></a>
-            <a
-              class="btn btn-outline-light btn-social mx-1"
-              href="https://github.com/alibnymn"
-              ><i class="fab fa-fw fa-github"></i
-            ></a>
-          </div>
-          <!-- Footer About Text-->
-          <div class="col-lg-4">
-            <h4 class="text-uppercase mb-4">About Freelancer</h4>
-            <p class="lead mb-0">
-              I am a junior freelancer in software and IT support services for a
-              service company.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-white">
-      <div class="container">
-        <small>Copyright &copy;alibnymn.github.io 2025</small>
-      </div>
-    </div>
-    <!-- Portfolio Modals-->
-    <!-- Portfolio Modal 1-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal1"
-      tabindex="-1"
-      aria-labelledby="portfolioModal1"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              class="btn-close"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
-                  <h2
-                    class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                  >
-                    Testcase Project
-                  </h2>
-                  <!-- Icon Divider-->
-                   <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk1/FormTestCase.jpg"
-                    alt="..."
-                  />
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk1/1.jpg"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Ini merupakan salah satu test case project saya pada
-                    saat menghandle  QA aplikasi LINO & SONS. <a href=" https://docs.google.com/spreadsheets/d/1ek9ojp7XDlzTaLuYdcJPA67JW22T0Yb9cKEc8wfysDc/edit?usp=sharing">Lihat Test Case</a>
-                  </p>
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-xmark fa-fw"></i>
-                    Close Window
-                  </button>
-                </div>
-              </div>
+
+    <section id="experience" class="py-24 bg-white/5">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black tracking-tighter mb-4 uppercase">Work Experience</h2>
+            <div class="flex items-center justify-center gap-4">
+                <div class="h-[2px] w-24 bg-blue-600/30"></div>
+                <i class="fas fa-briefcase text-blue-600"></i>
+                <div class="h-[2px] w-24 bg-blue-600/30"></div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- Portfolio Modal 2-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal2"
-      tabindex="-1"
-      aria-labelledby="portfolioModal2"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              class="btn-close"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
-                  <h2
-                    class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                  >
-                    Api Testing
-                  </h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                      <i class="fas fa-star"></i>
+
+        <div class="max-w-4xl mx-auto space-y-12">
+            
+            <div class="relative pl-8 border-l-2 border-blue-600">
+                <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
+                <div class="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-500">QA Tester</h3>
+                        <p class="font-medium opacity-80 text-lg">Lino</p>
                     </div>
-                    <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk2/1.jpg"
-                    alt="..."
-                  />
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk2/2.jpg"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Berikut adalah ringkasan testing api validation
-                    <a href="https://www.postman.com/universal-escape-407064/sample-api-testing/overview">Lihat Detail Keseluruhan Sample Api</a>
-                  </p>
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-xmark fa-fw"></i>
-                    Close Window
-                  </button>
+                    <span class="text-xs font-bold px-4 py-1 bg-blue-600/20 text-blue-400 rounded-full border border-blue-600/30">12/2023 - Present</span>
                 </div>
-              </div>
+                <ul class="space-y-2 text-sm opacity-70 list-disc ml-4">
+                    <li>Executed comprehensive functional, regression, and usability testing for desktop, mobile and web applications.</li>
+                    <li>Documented and tracked software defects using JIRA, reducing the overall bug density by providing clear reproduction steps.</li>
+                    <li>Conducted API testing using Postman/insomnia to ensure data integrity and service-level functionality between backend and mobile/web interfaces.</li>
+                </ul>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Portfolio Modal 3-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal3"
-      tabindex="-1"
-      aria-labelledby="portfolioModal3"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              class="btn-close"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
-                  <h2
-                    class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                  >
-                    Automation-playwright-project
-                  </h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                      <i class="fas fa-star"></i>
+
+            <div class="relative pl-8 border-l-2 border-blue-600/50">
+                <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-blue-600/50"></div>
+                <div class="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-400">QA Engineer</h3>
+                        <p class="font-medium opacity-80 text-lg">PT Lotus Lingga Pratama</p>
                     </div>
-                    <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk3/3.png"
-                    alt="..."
-                  />
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk3/2.jpg"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Berikut adalah Detail testing dengan Automation-playwright-project
-                  <a href="https://github.com/alibnymn/playwright-with-codegen">Lihat Automation</a>
+                    <span class="text-xs font-bold px-4 py-1 bg-white/10 rounded-full">10/2023 - Present</span>
+                </div>
+                <ul class="space-y-2 text-sm opacity-70 list-disc ml-4">
+                    <li>Executed comprehensive functional, regression, and usability testing for desktop, mobile and web applications.</li>
+                    <li>Documented and tracked software defects using JIRA, reducing the overall bug density by providing clear reproduction steps.</li>
+                    <li>Collaborated with product owners and developers in an Agile/Scrum environment to ensure high-quality software delivery.</li>
+                    <li>Conducted API testing using Postman/Insomnia to ensure data integrity and service-level functionality.</li>
+                </ul>
+            </div>
+
+            <div class="relative pl-8 border-l-2 border-white/20">
+                <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white/20"></div>
+                <div class="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold opacity-90">QA Tester</h3>
+                        <p class="font-medium opacity-80 text-lg">Whizliz</p>
+                    </div>
+                    <span class="text-xs font-bold px-4 py-1 bg-white/10 rounded-full">11/2023 - 12/2025</span>
+                </div>
+                <ul class="space-y-2 text-sm opacity-70 list-disc ml-4">
+                    <li>Executed comprehensive functional, regression, and usability testing for desktop, mobile and web applications.</li>
+                    <li>Conducted API testing using Postman to ensure data integrity and service-level functionality between backend and mobile/web interfaces.</li>
+                </ul>
+            </div>
+
+            <div class="relative pl-8 border-l-2 border-white/20">
+                <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white/20"></div>
+                <div class="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold opacity-90">IT Support (BE Web and App)</h3>
+                        <p class="font-medium opacity-80 text-lg">Daclen</p>
+                    </div>
+                    <span class="text-xs font-bold px-4 py-1 bg-white/10 rounded-full">03/2023 - 12/2023</span>
+                </div>
+                <ul class="space-y-2 text-sm opacity-70 list-disc ml-4">
+                    <li>Mengelola, memonitor dan memastikan seluruh domain, website, dan aplikasi perusahaan dapat diakses dengan baik.</li>
+                    <li>Melakukan maintenance, update, dan improvement fitur pada website dan aplikasi sesuai kebutuhan bisnis.</li>
+                    <li>Maintenance infrastruktur IT (CCTV, PABX, Router, NAS, Access Point) dan jaringan internet kantor.</li>
+                    <li>Kolaborasi dengan tim multimedia untuk pengembangan konten digital.</li>
+                </ul>
+            </div>
+
+            <div class="relative pl-8 border-l-2 border-white/20">
+                <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white/20"></div>
+                <div class="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold opacity-90">Programmer</h3>
+                        <p class="font-medium opacity-80 text-lg">PT Nixtrain Solution Indonesia</p>
+                    </div>
+                    <span class="text-xs font-bold px-4 py-1 bg-white/10 rounded-full">06/2022 - 06/2023</span>
+                </div>
+                <ul class="space-y-2 text-sm opacity-70 list-disc ml-4">
+                    <li>Maintenance of the Nixtrain learning website and create web portfolio development.</li>
+                    <li>Learning Web Analytics and completed Netacad & AWS client training.</li>
+                    <li>Generate websites for client needs and manage social media administration.</li>
+                </ul>
+            </div>
+
+            <div class="relative pl-8 border-l-2 border-white/20">
+                <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-white/20"></div>
+                <div class="flex flex-wrap justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold opacity-90">Junior Web Developer</h3>
+                        <p class="font-medium opacity-80 text-lg">PT JAMPARING MASAGI</p>
+                    </div>
+                    <span class="text-xs font-bold px-4 py-1 bg-white/10 rounded-full">09/2021 - 12/2021</span>
+                </div>
+                <ul class="space-y-2 text-sm opacity-70 list-disc ml-4">
+                    <li>Create a website-based library application.</li>
+                    <li>Perform software and hardware maintenance practices.</li>
+                    <li>Maintenance of website, CCTV, and network equipment.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <section id="portfolio" class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-black tracking-tighter mb-12">Selected Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal1">
+                    <img src="assets/img/portfolio/apk1/FormTestCase.jpg" class="w-full h-80 object-cover duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
+                        <span class="text-blue-400 text-[10px] font-bold uppercase mb-2">Manual Testing</span>
+                        <h3 class="text-2xl font-bold text-white">Lino & Sons Test Case</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal2">
+                    <img src="assets/img/portfolio/apk2/1.jpg" class="w-full h-80 object-cover duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
+                        <span class="text-purple-400 text-[10px] font-bold uppercase mb-2">Postman / API</span>
+                        <h3 class="text-2xl font-bold text-white">API Validation</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal3">
+                    <img src="assets/img/portfolio/apk3/3.png" class="w-full h-80 object-cover duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
+                        <span class="text-green-400 text-[10px] font-bold uppercase mb-2">Automation</span>
+                        <h3 class="text-2xl font-bold text-white">Playwright Project</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal4">
+                    <img src="assets/img/portfolio/apk4/bugreport.jpg" class="w-full h-80 object-cover duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
+                        <span class="text-red-400 text-[10px] font-bold uppercase mb-2">Issue Tracking</span>
+                        <h3 class="text-2xl font-bold text-white">Bug Reporting</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal5">
+                    <img src="assets/img/portfolio/apk5/daclen.png" class="w-full h-80 object-cover duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
+                        <span class="text-yellow-400 text-[10px] font-bold uppercase mb-2">App & Web</span>
+                        <h3 class="text-2xl font-bold text-white">Daclen Handles</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal6">
+                    <img src="assets/img/portfolio/apk6/1.jpg" class="w-full h-80 object-cover duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
+                        <span class="text-pink-400 text-[10px] font-bold uppercase mb-2">Strategic</span>
+                        <h3 class="text-2xl font-bold text-white">Test Plan Doc</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modal1" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-8">
+                <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6">TEST CASE: LINO & SONS</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <img src="assets/img/portfolio/apk1/FormTestCase.jpg" class="rounded-2xl w-full shadow-lg border border-white/10">
+                        <img src="assets/img/portfolio/apk1/1.jpg" class="rounded-2xl w-full shadow-lg border border-white/10">
+                    </div>
+                    <p class="opacity-70 mb-8 max-w-2xl mx-auto">Pendokumentasian Test Case secara detail untuk alur checkout, login, dan integrasi payment pada aplikasi perhiasan Lino & Sons.</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1ek9ojp7XDlzTaLuYdcJPA67JW22T0Yb9cKEc8wfysDc/edit?usp=sharing" target="_blank" class="px-8 py-3 bg-blue-600 text-white rounded-full font-bold inline-block">Buka Google Sheets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal2" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-8">
+                <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6">API VALIDATION (POSTMAN)</h2>
+                    <img src="assets/img/portfolio/apk2/1.jpg" class="rounded-2xl w-full mb-8 shadow-lg">
+                    <p class="opacity-70 mb-8 max-w-2xl mx-auto">Pengujian fungsionalitas API, response time, dan status code untuk memastikan backend stabil.</p>
+                    <a href="https://www.postman.com/universal-escape-407064/sample-api-testing/overview" target="_blank" class="px-8 py-3 bg-orange-500 text-white rounded-full font-bold inline-block">Lihat Koleksi Postman</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal3" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-8">
+                <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6">AUTOMATION: PLAYWRIGHT</h2>
+                    <img src="assets/img/portfolio/apk3/3.png" class="rounded-2xl w-full mb-8 shadow-lg">
+                    <p class="opacity-70 mb-8 max-w-2xl mx-auto">Framework pengujian otomatis menggunakan Playwright dengan pola Page Object Model (POM) untuk efisiensi script.</p>
+                    <a href="https://github.com/alibnymn/playwright-with-codegen" target="_blank" class="px-8 py-3 bg-black text-white rounded-full font-bold inline-block"><i class="fab fa-github mr-2"></i>Lihat Code di GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal4" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-8">
+                <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Bug Report</h2>
+                    <img src="assets/img/portfolio/apk4/bugreport.jpg" class="rounded-2xl w-full mb-8 shadow-lg border border-white/10">
+                    <p class="opacity-70 mb-8 max-w-2xl mx-auto">
+                        Sample Bug report yang pernah saya buat pada saat project app LINO & SONS.
                     </p>
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-xmark fa-fw"></i>
-                    Close Window
-                  </button>
+                    <a href="https://docs.google.com/document/d/1nSBSSsxFwvOtiLi5KdCLR7h0F4b_yQCZ8Le3Ok_2OQk/edit?usp=sharing" target="_blank" class="px-8 py-3 bg-red-600 text-white rounded-full font-bold inline-block hover:bg-red-700 transition">Lihat Bug Report</a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!-- Portfolio Modal 4-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal4"
-      tabindex="-1"
-      aria-labelledby="portfolioModal4"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              class="btn-close"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
-                  <h2
-                    class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                  >
-                    Bug Report
-                  </h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                      <i class="fas fa-star"></i>
+
+    <div class="modal fade" id="modal5" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-8">
+                <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Web & App Handled</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 text-left">
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/1.png" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Pabrik Koper Fiber</h4>
+                            <p class="text-sm opacity-60 mb-4">Company profile produsen koper fiber di Bandung.</p>
+                            <a href="https://pabrikkoperfiber.co.id/" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Kunjungi Situs →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/2.jpg" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Adipura Mandiri</h4>
+                            <p class="text-sm opacity-60 mb-4">Produsen tas custom terpercaya sejak 2004.</p>
+                            <a href="https://adipuramandiri.com/" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Kunjungi Situs →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/daclen.png" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Daclen Web</h4>
+                            <p class="text-sm opacity-60 mb-4">E-commerce tas premium dengan fitur lengkap.</p>
+                            <a href="https://daclen.com/" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Kunjungi Situs →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10 text-center">
+                            <img src="assets/img/portfolio/apk5/1.jpg" class="rounded-xl w-24 mx-auto mb-4">
+                            <h4 class="font-bold mb-2">Daclen App</h4>
+                            <p class="text-sm opacity-60 mb-4">Aplikasi Android untuk belanja tas Daclen.</p>
+                            <a href="https://play.google.com/store/apps/details?id=com.daclen.android&pcampaignid=web_share" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Lihat di Playstore →</a>
+                        </div>
                     </div>
-                    <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk4/bugreport.jpg"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Sample Bug report yang pernah saya buat pada saat project app LINO & SONS 
-                    <a href="https://docs.google.com/document/d/1nSBSSsxFwvOtiLi5KdCLR7h0F4b_yQCZ8Le3Ok_2OQk/edit?usp=sharing">Lihat Bug Report</a>
-                  </p>
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-xmark fa-fw"></i>
-                    Close Window
-                  </button>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!-- Portfolio Modal 5-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal5"
-      tabindex="-1"
-      aria-labelledby="portfolioModal5"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              class="btn-close"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
-                  <h2
-                    class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                  >
-                    Kumpulan Web & APP yang pernah dihandle
-                  </h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                      <i class="fas fa-star"></i>
+
+    <div class="modal fade" id="modal6" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content p-8">
+                <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Test Plan</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <img src="assets/img/portfolio/apk6/1.jpg" class="rounded-2xl w-full shadow-lg border border-white/10">
+                        <img src="assets/img/portfolio/apk6/2.jpg" class="rounded-2xl w-full shadow-lg border border-white/10">
                     </div>
-                    <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk5/1.png"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Website pabrikkoperfiber merupakan company profile dari produsen koper fiber yang ada dibandung
-                    <a href="https://pabrikkoperfiber.co.id/">Kunjungi pabrikkoperfiber.co.id</a>
-                  </p>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk5/2.jpg"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Website adipura merupakan company profile dari Produsen tas custom terpercaya sejak 2004
-                    <a href="https://adipuramandiri.com/">Kunjungi adipuramandiri.com</a>
-                  </p>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk5/daclen.png"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                   Daclen.com merupakan website e-commerce tas
-                    <a href="https://daclen.com/">Kunjungi Daclen Web</a>
-                  </p>
-                  <!-- Portfolio Modal - Image-->
-                  <center><img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk5/1.jpg"
-                    alt="..."
-                  /></center>
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Daclen App merupakan aplikasi e-commerce tas
-                    <a href="https://play.google.com/store/apps/details?id=com.daclen.android&pcampaignid=web_share">Kunjungi Daclen App</a>
-                  </p>
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-xmark fa-fw"></i>
-                    Close Window
-                  </button>
+                    <p class="opacity-70 mb-8 max-w-2xl mx-auto">
+                        Berikut adalah contoh test plan project saya ketika menghandle project Lino & Sons mobile app.
+                    </p>
+                    <a href="https://docs.google.com/document/d/1lRJWl8RNwGsVV2_-V9tB-0Xmw8ou3gIvZJgfVazNwqY/edit?usp=sharing" target="_blank" class="px-8 py-3 bg-pink-600 text-white rounded-full font-bold inline-block hover:bg-pink-700 transition">Lihat Test Plan</a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!-- Portfolio Modal 6-->
-    <div
-      class="portfolio-modal modal fade"
-      id="portfolioModal6"
-      tabindex="-1"
-      aria-labelledby="portfolioModal6"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <button
-              class="btn-close"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center pb-5">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
-                  <h2
-                    class="portfolio-modal-title text-secondary text-uppercase mb-0"
-                  >
-                    Test Plan
-                  </h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                      <i class="fas fa-star"></i>
+
+    <footer id="contact" class="py-24 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-black mb-8">TERTARIK BEKERJASAMA?</h2>
+            <section id="contact-me" class="py-20 bg-black/5">
+        <div class="container mx-auto px-6">
+            <div class="max-w-lg mx-auto bg-white/5 p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl">
+                
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-black tracking-tighter mb-3 uppercase">Contact Me</h2>
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="h-[1px] w-12 bg-blue-600/50"></div>
+                        <i class="fas fa-envelope text-blue-600 text-sm"></i>
+                        <div class="h-[1px] w-12 bg-blue-600/50"></div>
                     </div>
-                    <div class="divider-custom-line"></div>
-                  </div>
-                  <!-- Portfolio Modal - Image-->
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk6/1.jpg"
-                    alt="..."
-                  />
-                  <img
-                    class="img-fluid rounded mb-5"
-                    src="assets/img/portfolio/apk6/2.jpg"
-                    alt="..."
-                  />
-                  <!-- Portfolio Modal - Text-->
-                  <p class="mb-4" style="color: black;">
-                    Berikut adalah contoh test plan project saya ketika menghandle project lino&sons mobile app.
-                    <a href="https://docs.google.com/document/d/1lRJWl8RNwGsVV2_-V9tB-0Xmw8ou3gIvZJgfVazNwqY/edit?usp=sharing">Lihat test plan</a>
-                  </p>
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-xmark fa-fw"></i>
-                    Close Window
-                  </button>
                 </div>
-              </div>
+
+                <form action="#" class="space-y-5">
+                    <div class="grid grid-cols-1 gap-5">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Full Name</label>
+                            <input type="text" placeholder="Masukkan nama lengkap" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Email Address</label>
+                            <input type="email" placeholder="nama@email.com" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Subject</label>
+                            <input type="text" placeholder="Topik pembicaraan" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Message</label>
+                            <textarea rows="4" placeholder="Tulis pesanmu di sini..." class="w-full px-5 py-3.5 rounded-xl contact-input text-sm resize-none"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-4 mt-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20 active:scale-[0.97]">
+                       Send Message
+                    </button>
+                </form>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-  </body>
-  <script src="https://smtpjs.com/v3/smtp.js">
-        var btn = document.getElementById('btn');
-        btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var name = document.getElementById('name').value;
-        var name = document.getElementById('email').value;
-        var name = document.getElementById('subject').value;
-        var name = document.getElementById('message').value;
-        var body = 'name: ' +name + '<br/> email: ' + email + '<br/> subject ' + subject + '<br/> message ' + message;
-        Email.send({
-        Host : "smtp.gmail.com",
-        Username : "alikholifah03@gmail.com",
-        Password : "sorevdwrgakzsudc",
-        To : 'alikholifah03@gmail.com',
-        From : email,
-        subject : subject,
-        Body : body
-    }).then(
-      message => alert(message)
-    );
-    });
-  </script>
+    </section>
+            <div class="flex justify-center gap-6 mb-16">
+                <a href="https://www.linkedin.com/in/alibnymn/" class="text-2xl hover:text-blue-600 transition text-current"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/alibnymn" class="text-2xl hover:text-gray-400 transition text-current"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 opacity-60 uppercase tracking-[0.5em]">&copy; 2026 Ali WorkSpace. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('theme-dark')) {
+                body.classList.replace('theme-dark', 'theme-light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeToggle.classList.replace('bg-white', 'bg-gray-900');
+                themeToggle.classList.replace('text-gray-900', 'text-white');
+            } else {
+                body.classList.replace('theme-light', 'theme-dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeToggle.classList.replace('bg-gray-900', 'bg-white');
+                themeToggle.classList.replace('text-white', 'text-gray-900');
+            }
+        });
+
+        // Scroll Logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled', 'shadow-2xl', 'bg-black/20');
+            } else {
+                nav.classList.remove('nav-scrolled', 'shadow-2xl', 'bg-black/20');
+            }
+        });
+    </script>
+</body>
 </html>

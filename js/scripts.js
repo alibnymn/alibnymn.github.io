@@ -1,73 +1,28 @@
-/*!
- * Start Bootstrap - Freelancer v7.0.6 (https://startbootstrap.com/theme/freelancer)
- * Copyright 2013-2022 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
- */
-//
-// Scripts
-//
+// Theme Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  // Navbar shrink function
-  var navbarShrink = function () {
-    const navbarCollapsible = document.body.querySelector("#mainNav");
-    if (!navbarCollapsible) {
-      return;
-    }
-    if (window.scrollY === 0) {
-      navbarCollapsible.classList.remove("navbar-shrink");
-    } else {
-      navbarCollapsible.classList.add("navbar-shrink");
-    }
-  };
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('theme-dark')) {
+                body.classList.replace('theme-dark', 'theme-light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                themeToggle.classList.replace('bg-white', 'bg-gray-900');
+                themeToggle.classList.replace('text-gray-900', 'text-white');
+            } else {
+                body.classList.replace('theme-light', 'theme-dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                themeToggle.classList.replace('bg-gray-900', 'bg-white');
+                themeToggle.classList.replace('text-white', 'text-gray-900');
+            }
+        });
 
-  // Shrink the navbar
-  navbarShrink();
-
-  // Shrink the navbar when page is scrolled
-  document.addEventListener("scroll", navbarShrink);
-
-  // Activate Bootstrap scrollspy on the main nav element
-  const mainNav = document.body.querySelector("#mainNav");
-  if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#mainNav",
-      offset: 72,
-    });
-  }
-
-  // Collapse responsive navbar when toggler is visible
-  const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(
-    document.querySelectorAll("#navbarResponsive .nav-link")
-  );
-  responsiveNavItems.map(function (responsiveNavItem) {
-    responsiveNavItem.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
-        navbarToggler.click();
-      }
-    });
-  });
-  const contactForm = document.getElementById("contact-form");
-  const loader = document.querySelector(".loader");
-
-  loader.style.display = "none";
-
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    loader.style.display = "block";
-    const url = e.target.action;
-    const formData = new FormData(contactForm);
-
-    fetch(url, {
-      method: "POST",
-      body: formData,
-      mode: "no-cors",
-    })
-      .then(() => {
-        loader.style.display = "none";
-        window.location.href = "/thankyou.html";
-      })
-      .catch((e) => alert("Error occured"));
-  });
-});
+        // Scroll Logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled', 'shadow-2xl', 'bg-black/20');
+            } else {
+                nav.classList.remove('nav-scrolled', 'shadow-2xl', 'bg-black/20');
+            }
+        });

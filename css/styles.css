@@ -84,16 +84,91 @@
 }
 
 body {
-  margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
-  line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    padding-top: 100px !important; 
+}
+
+/* Warna Default Navbar (Dark) */
+#mainNav {
+  background-color: #111827; /* Gray 900 */
+  border-bottom: 1px solid #1f2937;
+}
+
+/* Style saat Light Mode aktif */
+/* body.light-mode #mainNav {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+body.light-mode .navbar-brand span, 
+body.light-mode .nav-link:not(.bg-blue-600) {
+  color: #111827 !important;
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+} */
+
+/* Kondisi saat Light Mode Aktif */
+body.light-mode {
+    background-color: #f9fafb !important;
+    color: #111827 !important;
+}
+
+/* Navbar juga ikut berubah saat Light Mode */
+body.light-mode #mainNav {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+body.light-mode .nav-link:not(.bg-blue-600) {
+    color: #4b5563 !important;
+}
+
+body.light-mode .navbar-brand span {
+    color: #111827 !important;
+}
+
+/* Agar konten bawah tidak tertutup navbar */
+body {
+  padding-top: 90px;
+}
+
+/* --- DEFAULT: DARK MODE (Netral Charcoal) --- */
+#hero-section {
+    background-color: #1a1c1e !important; /* Abu-abu gelap netral, bukan hitam pekat */
+    color: #e2e8f0 !important; /* Putih agak abu biar soft */
+}
+
+/* --- KONDISI: LIGHT MODE (Netral Soft Gray) --- */
+body.light-mode #hero-section {
+    background-color: #f8fafc !important; /* Putih keabuan (Slate 50), sangat bersih */
+    color: #1e293b !important; /* Teks biru gelap/charcoal */
+}
+
+/* Biar transisi warna background smooth pas diklik */
+.masthead, body, #mainNav {
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Penyesuaian garis divider agar mengikuti warna teks */
+.divider-custom-line {
+    background-color: currentColor !important;
+}
+
+/* Animasi Smooth */
+.masthead {
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 hr {
