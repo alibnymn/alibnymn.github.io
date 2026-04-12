@@ -8,77 +8,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background-color 0.5s ease, color 0.5s ease;
-            scroll-behavior: smooth;
-        }
-        .theme-dark { background-color: #1a1c1e; color: #e2e8f0; }
-        .theme-light { background-color: #f8fafc; color: #1e293b; }
-        
-        .nav-scrolled { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
-        
-        /* Modal Custom Styling */
-        .modal-content { border-radius: 2.5rem; border: none; overflow: hidden; }
-        .theme-dark .modal-content { background-color: #242729; color: white; }
-        .theme-light .modal-content { background-color: #ffffff; color: #1a1c1e; }
-        
-        .portfolio-card:hover img { transform: scale(1.05); }
-        .portfolio-card { cursor: pointer; transition: all 0.3s ease; }
-        
-        /* Hilangkan underline default bootstrap pada link */
-        a { text-decoration: none !important; }
-        /* Perbaikan CSS Navigasi */
-#mainNav {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body {
-    padding-top: 80px; /* Sesuai dengan tinggi h-20 navbar lo */
-}
-
-/* Style khusus untuk Form Contact */
-.contact-input {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.contact-input:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #10b981; /* Warna hijau emerald sesuai tombol */
-    outline: none;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
-}
-
-.theme-light .contact-input {
-    background-color: #f1f5f9;
-    border-color: #e2e8f0;
-    color: #1e293b;
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
+
 <body class="theme-dark">
 
     <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 px-4">
-        <div class="container mx-auto flex justify-between items-center bg-white/5 backdrop-blur-md rounded-full px-6 py-3 border border-white/10">
-            <a href="#" class="text-xl font-extrabold tracking-tighter uppercase">Ali WorkSpace</a>
-            
-            <div class="hidden md:flex items-center space-x-2">
-                <a href="#hero" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Home</a>
-                <a href="#skills" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Skills</a>
-                <a href="#portfolio" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Porto</a>
-                <a href="#experience" class="px-4 py-2 rounded-full hover:bg-white/10 transition text-xs font-bold uppercase tracking-widest text-current">Experience</a>
-                <a href="#contact" class="px-6 py-2 bg-blue-600 text-white rounded-full font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition shadow-lg">Contact</a>
+     <div class="container mx-auto relative">
+        <div class="flex justify-between items-center bg-white/5 backdrop-blur-md rounded-full px-6 py-3 border border-white/10">
+            <a href="#" class="text-xl font-extrabold tracking-tighter uppercase shrink-0">Ali WorkSpace</a>
+
+            <div class="hidden md:flex items-center space-x-1 mx-auto">
+                <a href="#hero" class="nav-link-custom px-4 py-2 rounded-full hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest">Home</a>
+                <a href="#skills" class="nav-link-custom px-4 py-2 rounded-full hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest">Skills</a>
+                <a href="#experience" class="nav-link-custom px-4 py-2 rounded-full hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest">Experience</a>
+                <a href="#portfolio" class="nav-link-custom px-4 py-2 rounded-full hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest">Porto</a>
+                <a href="#contact" class="nav-link-custom px-4 py-2 rounded-full hover:bg-white/10 transition-colors text-xs font-bold uppercase tracking-widest">Contact</a>
             </div>
 
-            <button id="theme-toggle" class="bg-white text-gray-900 p-2.5 rounded-full shadow-xl hover:scale-110 transition-transform">
-                <i id="theme-icon" class="fas fa-sun"></i>
-            </button>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="bg-white text-gray-900 p-2.5 rounded-full shadow-xl hover:scale-110 transition-transform">
+                    <i id="theme-icon" class="fas fa-sun"></i>
+                </button>
+
+                <button id="mobile-toggle" class="md:hidden p-2 focus:outline-none transition-colors text-gray-900 dark:text-white">
+                  <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
+
+        <div id="mobile-menu" class="absolute top-20 left-0 right-0 bg-black/90 backdrop-blur-xl border border-white/10 rounded-[2rem] p-6 flex flex-col items-center space-y-4 opacity-0 invisible translate-y-[-20px] transition-all duration-300 md:hidden">
+            <a href="#hero" class="mobile-link w-full text-center py-3 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10">Home</a>
+            <a href="#skills" class="mobile-link w-full text-center py-3 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10">Skills</a>
+            <a href="#experience" class="mobile-link w-full text-center py-3 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10">Experience</a>
+            <a href="#portfolio" class="mobile-link w-full text-center py-3 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10">Porto</a>
+            <a href="#contact" class="mobile-link w-full text-center py-3 rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-white/10">Contact</a>
+        </div>
+     </div>
     </nav>
 
     <header id="hero" class="min-h-screen flex items-center pt-20">
@@ -273,14 +239,14 @@ body {
                     <img src="assets/img/portfolio/apk2/1.jpg" class="w-full h-80 object-cover duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
                         <span class="text-purple-400 text-[10px] font-bold uppercase mb-2">Postman / API</span>
-                        <h3 class="text-2xl font-bold text-white">API Validation</h3>
+                        <h3 class="text-2xl font-bold text-white">API Testing</h3>
                     </div>
                 </div>
 
                 <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal3">
                     <img src="assets/img/portfolio/apk3/3.png" class="w-full h-80 object-cover duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
-                        <span class="text-green-400 text-[10px] font-bold uppercase mb-2">Automation</span>
+                        <span class="text-green-400 text-[10px] font-bold uppercase mb-2">Automation Testing</span>
                         <h3 class="text-2xl font-bold text-white">Playwright Project</h3>
                     </div>
                 </div>
@@ -294,10 +260,10 @@ body {
                 </div>
 
                 <div class="portfolio-card group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10" data-bs-toggle="modal" data-bs-target="#modal5">
-                    <img src="assets/img/portfolio/apk5/daclen.png" class="w-full h-80 object-cover duration-500">
+                    <img src="assets/img/portfolio/apk5/juene web.jpeg" class="w-full h-80 object-cover duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 p-8 flex flex-col justify-end">
                         <span class="text-yellow-400 text-[10px] font-bold uppercase mb-2">App & Web</span>
-                        <h3 class="text-2xl font-bold text-white">Daclen Handles</h3>
+                        <h3 class="text-2xl font-bold text-white">Application Handles</h3>
                     </div>
                 </div>
 
@@ -335,10 +301,15 @@ body {
             <div class="modal-content p-8">
                 <div class="text-end mb-4"><button class="btn-close" data-bs-dismiss="modal"></button></div>
                 <div class="text-center">
-                    <h2 class="text-3xl font-black mb-6">API VALIDATION (POSTMAN)</h2>
+                    <h2 class="text-3xl font-black mb-6">API VALIDATION</h2>
                     <img src="assets/img/portfolio/apk2/1.jpg" class="rounded-2xl w-full mb-8 shadow-lg">
                     <p class="opacity-70 mb-8 max-w-2xl mx-auto">Pengujian fungsionalitas API, response time, dan status code untuk memastikan backend stabil.</p>
-                    <a href="https://www.postman.com/universal-escape-407064/sample-api-testing/overview" target="_blank" class="px-8 py-3 bg-orange-500 text-white rounded-full font-bold inline-block">Lihat Koleksi Postman</a>
+                </div>
+                <div class="text-center">
+                    <h2 class="text-3xl font-black mb-6">API TESTING WALLET ETH</h2>
+                    <img src="assets/img/portfolio/apk2/api tes eth.jpeg" class="rounded-2xl w-full mb-8 shadow-lg">
+                    <p class="opacity-70 mb-8 max-w-2xl mx-auto">Pengujian fungsionalitas API, response time, dan status code untuk memastikan transition wallet.</p>
+                    <a href="https://www.postman.com/universal-escape-407064/sample-api-testing" target="_blank" class="px-8 py-3 bg-orange-500 text-white rounded-full font-bold inline-block">Lihat Koleksi Postman</a>
                 </div>
             </div>
         </div>
@@ -382,6 +353,43 @@ body {
                     <h2 class="text-3xl font-black mb-6 uppercase tracking-tighter">Web & App Handled</h2>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 text-left">
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/lotus web.jpeg" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Lotus Company Profile</h4>
+                            <p class="text-sm opacity-60 mb-4">Established in 1975, Lotus Lingga Pratama has been the epitome of the Indonesian perseverance. Started as a humble home industry, Lotus Lingga Pratama has now become one of the major players of gold jewelry in the world. Now, the extent of the business has covered numerous countries in Asia, Europe, the Middle East and south, and North America.</p>
+                            <a href="https://llpgold.com/" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Kunjungi Situs →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/lino web.jpeg" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Lino Website</h4>
+                            <p class="text-sm opacity-60 mb-4">One of the biggest jewelry manufacturer and exporter in Indonesia. Lino and Sons strives to provide Highest Quality Jewellery (neackle, wedding ring).</p>
+                            <a href="https://www.linoandsons.com/" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Kunjungi Situs →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/lino app.jpeg" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Lino & Sons Mobile App</h4>
+                            <p class="text-sm opacity-60 mb-4">Lino and Sons berusaha untuk menyediakan Perhiasan dengan Kualitas Tertinggi, Inovasi Desain, dan teknologi Canggih kepada pelanggan.
+                               Kami akan memberikan kontribusi kepada pelanggan kami dan orang-orang di sekitar kami dengan menyediakan produk dan layanan kelas dunia tanpa terlalu menyadari tren.</p>
+                            <a href="https://play.google.com/store/apps/details?id=com.linoandsons.member&pcampaignid=web_share" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Lihat Di Play Store →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/juene web.jpeg" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Juene Jewelry</h4>
+                            <p class="text-sm opacity-60 mb-4">Toko perhiasan emas online menyediakan aksesoris cincin, kalung, gelang, anting, liontin emas asli 7K 8K terpercaya. Bersertifikat dapat dijual kembali.</p>
+                            <a href="https://www.juenejewelry.com/" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Kunjungi Situs →</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/internal app.png" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Aplikasi Internal Company</h4>
+                            <p class="text-sm opacity-60 mb-4">Menghandle QA untuk aplikasi kebutuhan internal seperti Lotus Karyawan, Gudang, RND, Marketing, QC, Operator, Produksi dan HRCM(penilaian karyawan).</p>
+                            <a href="" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Access Private</a>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
+                            <img src="assets/img/portfolio/apk5/whizliz app.jpeg" class="rounded-xl w-full mb-4 h-48 object-cover">
+                            <h4 class="font-bold mb-2">Whizliz website & Whizliz App</h4>
+                            <p class="text-sm opacity-60 mb-4">Market Place Perhiasan Emas, Berlian dan aksesoris.</p>
+                            <a href="" target="_blank" class="text-blue-500 text-xs font-bold uppercase">Applikasi & Website non aktif</a>
+                        </div>
                         <div class="bg-white/5 p-4 rounded-3xl border border-white/10">
                             <img src="assets/img/portfolio/apk5/1.png" class="rounded-xl w-full mb-4 h-48 object-cover">
                             <h4 class="font-bold mb-2">Pabrik Koper Fiber</h4>
@@ -431,50 +439,51 @@ body {
         </div>
     </div>
 
-    <footer id="contact" class="py-24 text-center">
+    <section id="contact" class="py-24 bg-black/5">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-black mb-8">TERTARIK BEKERJASAMA?</h2>
-            <section id="contact-me" class="py-20 bg-black/5">
-        <div class="container mx-auto px-6">
-            <div class="max-w-lg mx-auto bg-white/5 p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl">
-                
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-black tracking-tighter mb-3 uppercase">Contact Me</h2>
-                    <div class="flex items-center justify-center gap-3">
-                        <div class="h-[1px] w-12 bg-blue-600/50"></div>
-                        <i class="fas fa-envelope text-blue-600 text-sm"></i>
-                        <div class="h-[1px] w-12 bg-blue-600/50"></div>
-                    </div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black mb-2 uppercase tracking-tighter">Tertarik Bekerjasama?</h2>
+                <div class="flex items-center justify-center gap-3">
+                    <div class="h-[1px] w-12 bg-blue-600/50"></div>
+                    <i class="fas fa-envelope text-blue-600 text-sm"></i>
+                    <div class="h-[1px] w-12 bg-blue-600/50"></div>
                 </div>
+            </div>
 
-                <form action="#" class="space-y-5">
-                    <div class="grid grid-cols-1 gap-5">
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Full Name</label>
-                            <input type="text" placeholder="Masukkan nama lengkap" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Email Address</label>
-                            <input type="email" placeholder="nama@email.com" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Subject</label>
-                            <input type="text" placeholder="Topik pembicaraan" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Message</label>
-                            <textarea rows="4" placeholder="Tulis pesanmu di sini..." class="w-full px-5 py-3.5 rounded-xl contact-input text-sm resize-none"></textarea>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="w-full py-4 mt-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20 active:scale-[0.97]">
-                       Send Message
-                    </button>
-                </form>
+            <div class="max-w-lg mx-auto bg-white/5 p-8 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl">
+             <form action="https://formsubmit.co/alikholifah03@gmail.com" method="POST" class="space-y-5">
+                 <input type="hidden" name="_next" value="https://alibnymn.github.io/thankyou.html">
+                 <input type="hidden" name="_captcha" value="false">
+                 <input type="hidden" name="_template" value="table">
+              <div class="grid grid-cols-1 gap-5">
+               <div>
+                <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Full Name</label>
+                <input type="text" name="name" placeholder="Masukkan nama lengkap" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm" required>
+               </div>
+              <div>
+                <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Email Address</label>
+                <input type="email" name="email" placeholder="nama@email.com" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm" required>
+              </div>
+              <div>
+               <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Subject</label>
+               <input type="text" name="_subject" placeholder="Topik pembicaraan" class="w-full px-5 py-3.5 rounded-xl contact-input text-sm" required>
+              </div>
+              <div>
+               <label class="block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50 mb-2 ml-1">Message</label>
+               <textarea name="message" rows="4" placeholder="Tulis pesanmu di sini..." class="w-full px-5 py-3.5 rounded-xl contact-input text-sm resize-none" required></textarea>
+              </div>
+             </div>
+              <button type="submit" class="w-full py-4 mt-2 bg-[#2563eb] hover:bg-[#1d4ed8] text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20 active:scale-[0.97]">
+               Send Message
+              </button>
+             </form>
             </div>
         </div>
     </section>
-            <div class="flex justify-center gap-6 mb-16">
+
+    <footer class="py-16 text-center border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-8">
                 <a href="https://www.linkedin.com/in/alibnymn/" class="text-2xl hover:text-blue-600 transition text-current"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/alibnymn" class="text-2xl hover:text-gray-400 transition text-current"><i class="fab fa-github"></i></a>
             </div>
@@ -483,35 +492,6 @@ body {
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Theme Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('theme-dark')) {
-                body.classList.replace('theme-dark', 'theme-light');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                themeToggle.classList.replace('bg-white', 'bg-gray-900');
-                themeToggle.classList.replace('text-gray-900', 'text-white');
-            } else {
-                body.classList.replace('theme-light', 'theme-dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                themeToggle.classList.replace('bg-gray-900', 'bg-white');
-                themeToggle.classList.replace('text-white', 'text-gray-900');
-            }
-        });
-
-        // Scroll Logic
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled', 'shadow-2xl', 'bg-black/20');
-            } else {
-                nav.classList.remove('nav-scrolled', 'shadow-2xl', 'bg-black/20');
-            }
-        });
-    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
